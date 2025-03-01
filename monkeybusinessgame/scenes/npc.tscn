@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://4v3rbof2ixc4"]
+
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_21ady"]
+[ext_resource type="Texture2D" uid="uid://bhbwefl40fxl4" path="res://art_assets/Monkey.png" id="1_u05v5"]
+[ext_resource type="Script" path="res://scenes/area_2d.gd" id="3_2q5nv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lx3mm"]
+radius = 28.0
+height = 92.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abglq"]
+radius = 100.125
+
+[sub_resource type="LabelSettings" id="LabelSettings_uv1w0"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_21ady")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_u05v5")
+region_enabled = true
+region_rect = Rect2(47.4888, 21.9314, 15.9315, 18.7583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lx3mm")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_2q5nv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_abglq")
+
+[node name="TalkPrompt" type="Label" parent="Area2D"]
+offset_left = -58.0
+offset_top = -76.0
+offset_right = 59.0
+offset_bottom = -53.0
+text = "Press 'T' to talk"
+label_settings = SubResource("LabelSettings_uv1w0")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
