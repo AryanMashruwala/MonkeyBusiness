@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var lastDir = "s_idle"
 @onready var animation = $AnimatedSprite2D
-const SPEED = 100
+const SPEED = 300
 
 
 func _ready() -> void:
