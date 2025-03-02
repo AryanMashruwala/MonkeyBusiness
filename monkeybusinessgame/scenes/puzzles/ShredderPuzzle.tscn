@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://degr1eph1luvr"]
+
+[ext_resource type="Script" path="res://scenes/puzzles/shredder_puzzle.gd" id="1_88jm6"]
+[ext_resource type="PackedScene" uid="uid://bkmqw60fdci2u" path="res://scenes/puzzles/paper_piece.tscn" id="1_g6b6l"]
+[ext_resource type="Texture2D" uid="uid://babmrr250hhvy" path="res://icon.svg" id="2_qtfpp"]
+[ext_resource type="Script" path="res://scenes/puzzles/slots.gd" id="2_x6je0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmkey"]
+size = Vector2(153, 188)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_88jm6")
+
+[node name="paperPiece1" parent="." instance=ExtResource("1_g6b6l")]
+position = Vector2(253, 114)
+
+[node name="Slot1" type="Area2D" parent="."]
+position = Vector2(18, 21)
+script = ExtResource("2_x6je0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot1"]
+position = Vector2(69, 85)
+texture = ExtResource("2_qtfpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot1"]
+position = Vector2(66.5, 84)
+shape = SubResource("RectangleShape2D_kmkey")
+
+[node name="paperPiece2" parent="." instance=ExtResource("1_g6b6l")]
+position = Vector2(259, 178)
+
+[node name="Slot2" type="Area2D" parent="."]
+position = Vector2(349, 24)
+script = ExtResource("2_x6je0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot2"]
+position = Vector2(69, 85)
+texture = ExtResource("2_qtfpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot2"]
+position = Vector2(66.5, 84)
+shape = SubResource("RectangleShape2D_kmkey")
+
+[connection signal="area_entered" from="Slot1" to="paperPiece1" method="_on_slot_1_area_entered"]
+[connection signal="area_entered" from="Slot1" to="Slot1" method="_on_area_entered"]
+[connection signal="area_exited" from="Slot1" to="Slot1" method="_on_area_exited"]
+[connection signal="area_entered" from="Slot2" to="paperPiece1" method="_on_slot_1_area_entered"]
+[connection signal="area_entered" from="Slot2" to="Slot2" method="_on_area_entered"]
+[connection signal="area_exited" from="Slot2" to="Slot2" method="_on_area_exited"]

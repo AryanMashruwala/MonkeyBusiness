@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkmqw60fdci2u"]
+
+[ext_resource type="Script" path="res://scenes/puzzles/puzzle_piece.gd" id="1_lko0t"]
+[ext_resource type="Texture2D" uid="uid://70ywyetcscus" path="res://art_assets/word_puzzle.png" id="2_apdlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q54gl"]
+size = Vector2(43, 98)
+
+[node name="paperPiece" type="Area2D"]
+script = ExtResource("1_lko0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_q54gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_apdlq")
+region_enabled = true
+region_rect = Rect2(0, 0, 35, 96)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
