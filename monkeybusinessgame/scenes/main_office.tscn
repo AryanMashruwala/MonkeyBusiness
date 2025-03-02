@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=12 format=4 uid="uid://ftpasfy72wsf"]
+
 
 [ext_resource type="Script" path="res://scenes/room_1.gd" id="1_7hdbf"]
 [ext_resource type="Texture2D" uid="uid://dmily2buuq481" path="res://art_assets/walls_n_floors.png" id="1_bjngc"]

@@ -6,7 +6,7 @@ const CHAR_READ_RATE = 0.05
 @onready var start = $TextBoxContainer/MarginContainer/HBoxContainer/start
 @onready var end = $TextBoxContainer/MarginContainer/HBoxContainer/end
 @onready var body = $TextBoxContainer/MarginContainer/HBoxContainer/body
-
+@onready var buttons = $ChooseTypeButtons
 
 
 #@onready var tween = get_tree().create_tween()
@@ -55,6 +55,8 @@ func _input(event):
 func close_dialogue():
 	changeState(State.READY)
 	textbox_container.visible = false
+	# render buttons
+	renderButtons()
 	
 func _process(delta: float) -> void:
 	
@@ -70,6 +72,7 @@ func _ready() -> void:
 	body.text = ""
 	start.text = "> "
 	end.text = ""	
+	buttons.visible = false
 	
 func renderTextbox(dialog_lines: Array[String]):
 	if tween and tween.is_running():
@@ -109,4 +112,8 @@ func changeState(next_state):
 			end.text = "Press 'T'"
 	
 	
+func renderButtons():
+	buttons.visible = true
 	
+func closeButtons():
+	buttons.visible = false

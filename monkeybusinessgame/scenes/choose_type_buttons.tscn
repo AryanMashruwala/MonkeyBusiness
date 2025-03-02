@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=3 uid="uid://uiuj27rxctss"]
+
+[ext_resource type="FontFile" uid="uid://bnn8i6yfvk8fc" path="res://MegamaxJonathanToo-YqOq2.ttf" id="1_dmvrh"]
+[ext_resource type="Script" path="res://scenes/choose_type_buttons.gd" id="1_jeh8n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc3lm"]
+bg_color = Color(0.74902, 0.729412, 0.47451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ieb8a"]
+font = ExtResource("1_dmvrh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6k5d"]
+bg_color = Color(1, 0.203922, 0.239216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggeu1"]
+bg_color = Color(0, 0.725985, 0.181283, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qot1m"]
+bg_color = Color(0.375468, 0.584539, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="ChooseTypeButtons" type="CanvasLayer"]
+script = ExtResource("1_jeh8n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 49.0
+offset_top = 140.0
+offset_right = 461.0
+offset_bottom = 237.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dc3lm")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel2" type="Panel" parent="MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dc3lm")
+
+[node name="Question" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "How will you convince the monkey?"
+label_settings = SubResource("LabelSettings_ieb8a")
+
+[node name="ButtonsContainer" type="MarginContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 16
+
+[node name="LogosButton" type="MarginContainer" parent="MarginContainer/MarginContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/ButtonsContainer/LogosButton"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b6k5d")
+
+[node name="Logos" type="Button" parent="MarginContainer/MarginContainer/ButtonsContainer/LogosButton"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dmvrh")
+text = "Logos"
+flat = true
+
+[node name="PathosButton" type="MarginContainer" parent="MarginContainer/MarginContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/ButtonsContainer/PathosButton"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ggeu1")
+
+[node name="Pathos" type="Button" parent="MarginContainer/MarginContainer/ButtonsContainer/PathosButton"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dmvrh")
+text = "Pathos"
+flat = true
+
+[node name="EthosButton" type="MarginContainer" parent="MarginContainer/MarginContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/ButtonsContainer/EthosButton"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qot1m")
+
+[node name="Ethos" type="Button" parent="MarginContainer/MarginContainer/ButtonsContainer/EthosButton"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dmvrh")
+text = "Ethos"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/ButtonsContainer/LogosButton/Logos" to="." method="_on_logos_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/ButtonsContainer/PathosButton/Pathos" to="." method="_on_pathos_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/ButtonsContainer/EthosButton/Ethos" to="." method="_on_ethos_pressed"]
