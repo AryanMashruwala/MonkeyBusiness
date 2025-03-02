@@ -1,0 +1,226 @@
+[gd_scene load_steps=8 format=3 uid="uid://baoukvsfdixn0"]
+
+[ext_resource type="Script" path="res://scenes/logos_puzzle/logos_number_puzzle.gd" id="1_34ush"]
+[ext_resource type="Script" path="res://scenes/logos_puzzle/number_1.gd" id="1_uynqd"]
+[ext_resource type="Texture2D" uid="uid://btvq4q7kjex2x" path="res://art_assets/word_puzzle_2.png" id="2_muacw"]
+[ext_resource type="Texture2D" uid="uid://babmrr250hhvy" path="res://icon.svg" id="3_kjxon"]
+[ext_resource type="Script" path="res://scenes/logos_puzzle/number_slot.gd" id="4_ii3cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnyjv"]
+size = Vector2(48, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekhuu"]
+
+[node name="LogosNumberPuzzle" type="Node2D"]
+script = ExtResource("1_34ush")
+
+[node name="number1" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(40, 27)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number1"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(-0.165146, 0.668476, 48.1406, 46.8658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number2" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(95, 27)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number2"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(49.957, 0.668476, 45.3822, 46.8658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number3" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(154, 27)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number3"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(-0.165146, 0.668476, 48.1406, 46.8658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number3"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number4" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(40, 79)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number4"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(-0.165146, 47.0147, 48.1406, 46.9119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number4"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number5" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(96, 80)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number5"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(50.4669, 48.5444, 45.3821, 44.3623)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number5"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number6" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(155, 80)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number6"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(-0.165146, 99.5356, 48.1406, 41.3028)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number6"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="number7" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(210, 80)
+script = ExtResource("1_uynqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="number7"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.02, 1)
+texture = ExtResource("2_muacw")
+region_enabled = true
+region_rect = Rect2(49.957, 99.5356, 43.3425, 41.3028)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number7"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnyjv")
+
+[node name="slot1" type="Area2D" parent="."]
+position = Vector2(56, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot1"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot1"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot2" type="Area2D" parent="."]
+position = Vector2(117, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot2"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot2"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot3" type="Area2D" parent="."]
+position = Vector2(181, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot3"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot3"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot4" type="Area2D" parent="."]
+position = Vector2(246, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot4"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot4"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot5" type="Area2D" parent="."]
+position = Vector2(313, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot5"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot5"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot6" type="Area2D" parent="."]
+position = Vector2(380, 161)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot6"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot6"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[node name="slot7" type="Area2D" parent="."]
+position = Vector2(448, 160)
+script = ExtResource("4_ii3cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot7"]
+shape = SubResource("RectangleShape2D_ekhuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="slot7"]
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_kjxon")
+
+[connection signal="input_event" from="number1" to="number1" method="_on_input_event"]
+[connection signal="input_event" from="number2" to="number2" method="_on_input_event"]
+[connection signal="input_event" from="number3" to="number3" method="_on_input_event"]
+[connection signal="input_event" from="number4" to="number4" method="_on_input_event"]
+[connection signal="input_event" from="number5" to="number5" method="_on_input_event"]
+[connection signal="input_event" from="number6" to="number6" method="_on_input_event"]
+[connection signal="input_event" from="number7" to="number7" method="_on_input_event"]
+[connection signal="area_entered" from="slot1" to="slot1" method="_on_area_entered"]
+[connection signal="area_exited" from="slot1" to="slot1" method="_on_area_exited"]
+[connection signal="area_entered" from="slot2" to="slot2" method="_on_area_entered"]
+[connection signal="area_exited" from="slot2" to="slot2" method="_on_area_exited"]
+[connection signal="area_entered" from="slot3" to="slot3" method="_on_area_entered"]
+[connection signal="area_exited" from="slot3" to="slot3" method="_on_area_exited"]
+[connection signal="area_entered" from="slot4" to="slot4" method="_on_area_entered"]
+[connection signal="area_exited" from="slot4" to="slot4" method="_on_area_exited"]
+[connection signal="area_entered" from="slot5" to="slot5" method="_on_area_entered"]
+[connection signal="area_exited" from="slot5" to="slot5" method="_on_area_exited"]
+[connection signal="area_entered" from="slot6" to="slot6" method="_on_area_entered"]
+[connection signal="area_exited" from="slot6" to="slot6" method="_on_area_exited"]
+[connection signal="area_entered" from="slot7" to="slot7" method="_on_area_entered"]
+[connection signal="area_exited" from="slot7" to="slot7" method="_on_area_exited"]
