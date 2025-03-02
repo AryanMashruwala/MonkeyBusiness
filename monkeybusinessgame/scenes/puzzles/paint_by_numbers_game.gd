@@ -5,6 +5,7 @@ var palette_colors = {}  # Maps palette buttons to colors
 var number_to_color = {}  # Maps canvas buttons to corresponding color layers
 var number_to_name = {}  # Maps canvas buttons to corresponding color layers
 var brush_sprites = {}  # Stores references to brush sprites
+var painted_colors = {"yellow": false, "green": false, "blue": false}  # Tracks which colors have been painted
 
 func _ready():
 	# Connect palette buttons
@@ -118,3 +119,12 @@ func _on_canvas_button_pressed(button: Button):
 	if color_layer and selected_color:
 		if selected_color == color_name:
 			color_layer.visible = true  # Reveal the correct color layer
+			painted_colors[selected_color] = true  # Mark this color as painted
+			check_completion()
+
+func check_completion():
+	if painted_colors["yellow"] and painted_colors["green"] and painted_colors["blue"]:
+		change_scene()
+
+func change_scene():
+	get_tree().change_scene_to_file("res://scenes/main_office.tscn")  # Change to the next scene
