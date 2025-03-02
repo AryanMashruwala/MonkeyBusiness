@@ -10,16 +10,16 @@ var correct_slots = {
 var placed_pieces = {}
 
 func _on_area_entered(area: Area2D) -> void:
-	print("_on_area_entered area ", area.name)
-	print("_on_area_entered self ", self.name)
+	#print("_on_area_entered area ", area.name)
+	#print("_on_area_entered self ", self.name)
 	# Get the parent Node2D and call `mark_piece_placed`
 	var puzzle_manager = get_parent()  # This finds `PuzzleManager.gd`
 	if puzzle_manager.has_method("mark_piece_placed"):
 		puzzle_manager.mark_piece_placed(area.name, self.name)
 
 func _on_area_exited(area: Area2D) -> void:
-	print("_on_area_exited area:", area.name)
-	print("_on_area_exited self:", self.name)
+	#print("_on_area_exited area:", area.name)
+	#print("_on_area_exited self:", self.name)
 	var puzzle_manager = get_parent()
 	if puzzle_manager.has_method("mark_piece_removed"):
 		puzzle_manager.mark_piece_removed(area.name, self.name)
