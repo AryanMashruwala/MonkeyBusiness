@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnh04l7uo6b4h"]
+
+[ext_resource type="Script" path="res://title_screen.gd" id="1_jbafh"]
+[ext_resource type="Texture2D" uid="uid://tay3rehm45te" path="res://art_assets/title.png" id="1_ydnkd"]
+[ext_resource type="Script" path="res://start_button.gd" id="2_iwp8k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jbafh")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(256, 128)
+texture = ExtResource("1_ydnkd")
+
+[node name="start_button" type="Button" parent="."]
+offset_left = 177.0
+offset_top = 198.0
+offset_right = 185.0
+offset_bottom = 206.0
+scale = Vector2(18.4407, -5.69249)
+script = ExtResource("2_iwp8k")
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]

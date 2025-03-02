@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://b5t3p8m5msf2w"]
 
+[gd_scene load_steps=12 format=4 uid="uid://ftpasfy72wsf"]
+
+
+[ext_resource type="Script" path="res://scenes/room_1.gd" id="1_7hdbf"]
 [ext_resource type="Texture2D" uid="uid://dmily2buuq481" path="res://art_assets/walls_n_floors.png" id="1_bjngc"]
 [ext_resource type="Texture2D" uid="uid://c01ochcmqth5j" path="res://art_assets/office_art.png" id="2_tqv14"]
 [ext_resource type="PackedScene" uid="uid://d3d0g2g0pnseb" path="res://scenes/player.tscn" id="3_o0ln8"]
+[ext_resource type="Script" path="res://scenes/room_2.gd" id="4_v7myn"]
+[ext_resource type="Script" path="res://scenes/room_3.gd" id="5_1a1ij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11taj"]
+size = Vector2(35, 5.17847)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhq20"]
 texture = ExtResource("1_bjngc")
@@ -99,325 +107,374 @@ tile_layout = 5
 tile_size = Vector2i(32, 16)
 sources/5 = SubResource("TileSetAtlasSource_qychi")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_11taj"]
-size = Vector2(258, 132.25)
-
 [node name="Node2D" type="Node2D"]
 position = Vector2(-3, 1)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.998922, 1)
 
-[node name="TileMap" type="Node2D" parent="Area2D"]
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 6.0
+scale = Vector2(1154.3, 845.336)
+pivot_offset = Vector2(1, 5)
+color = Color(0.851674, 0.584818, 0.360542, 1)
 
-[node name="Layer 1" type="TileMapLayer" parent="Area2D/TileMap"]
+[node name="Room1" type="Area2D" parent="Node2D"]
+script = ExtResource("1_7hdbf")
+next_room = NodePath("../Room2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room1"]
+position = Vector2(245, 137.125)
+shape = SubResource("RectangleShape2D_11taj")
+
+[node name="TileMap" type="Node2D" parent="Node2D/Room1"]
+
+[node name="Layer 1" type="TileMapLayer" parent="Node2D/Room1/TileMap"]
 position = Vector2(-27, 3)
 tile_map_data = PackedByteArray("AAANAAEAAAAAAAAAAAANAAAAAAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAP//AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAPz/AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAP//AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAPz/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAAAAAAAAAASAAIAAAAAAAAAAAASAAEAAAAAAAAAAAASAAAAAAAAAAAAAAASAP//AAAAAAAAAAASAP7/AAAAAAAAAAASAP3/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAANAPz/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wcdrr")
 
-[node name="Layer2" type="TileMapLayer" parent="Area2D/TileMap"]
+[node name="Layer2" type="TileMapLayer" parent="Node2D/Room1/TileMap"]
 position = Vector2(-79, -11)
 tile_map_data = PackedByteArray("AAATAPn/BQAwABAAAAARAPn/BQAwABAAAAAMAPr/BQAwAAAAAAAPAPn/BQAwABAAAAAMAPz/BQAwAAAAAAAMAP7/BQAwAAAAAAAMAAAABQAwAAAAAAA=")
 tile_set = SubResource("TileSet_dhdih")
 y_sort_origin = -16
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/TileMap"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room1/TileMap"]
 position = Vector2(188, 88)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/TileMap/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/TileMap/StaticBody2D"]
 polygon = PackedVector2Array(-70, 11, 57, -53, 65, -49, 65, -49, 65, -17, -63, 47, -70, 43)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Area2D/TileMap"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D/Room1/TileMap"]
 position = Vector2(189, 145)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/TileMap/StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/TileMap/StaticBody2D2"]
 position = Vector2(-1, 32)
 polygon = PackedVector2Array(-71, -46, 57, 18, 57, 34, -70, -30)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Area2D/TileMap"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D/Room1/TileMap"]
 position = Vector2(307, 149)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/TileMap/StaticBody2D3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/TileMap/StaticBody2D3"]
 polygon = PackedVector2Array(66, -18, -62, 47, -62, 62, 66, -1)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Area2D/TileMap"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D/Room1/TileMap"]
 position = Vector2(301, 89)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/TileMap/StaticBody2D4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/TileMap/StaticBody2D4"]
 polygon = PackedVector2Array(-32, -1, -31, -35, -24, -38, 71, 10, 71, 42, 65, 46, -32, -2)
 
-[node name="Worker2" type="Node2D" parent="Area2D"]
+[node name="Worker2" type="Node2D" parent="Node2D/Room1"]
 position = Vector2(400, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/Worker2"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room1/Worker2"]
 position = Vector2(-183, 95)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/Worker2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room1/Worker2"]
 position = Vector2(-183, 99)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/Worker2/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/Worker2/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker4" type="Node2D" parent="Area2D"]
+[node name="Worker4" type="Node2D" parent="Node2D/Room1"]
 position = Vector2(1600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/Worker4"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room1/Worker4"]
 position = Vector2(-1278, 132)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/Worker4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room1/Worker4"]
 position = Vector2(-1278, 136)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/Worker4/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/Worker4/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker3" type="Node2D" parent="Area2D"]
+[node name="Worker3" type="Node2D" parent="Node2D/Room1"]
 position = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/Worker3"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room1/Worker3"]
 position = Vector2(-649, 126)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/Worker3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room1/Worker3"]
 position = Vector2(-649, 130)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/Worker3/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/Worker3/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker" type="Node2D" parent="Area2D"]
+[node name="Worker" type="Node2D" parent="Node2D/Room1"]
 position = Vector2(400, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/Worker"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room1/Worker"]
 position = Vector2(-155, 174)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/Worker"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room1/Worker"]
 position = Vector2(-155, 178)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/Worker/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room1/Worker/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(245, 137.125)
+[node name="SpawnPoint" type="Marker2D" parent="Node2D/Room1"]
+position = Vector2(190, 144)
+
+[node name="ExitTrigger" type="Area2D" parent="Node2D/Room1"]
+scale = Vector2(1.01752, 0.966777)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room1/ExitTrigger"]
+position = Vector2(270, 77.2013)
+scale = Vector2(1.20756, 1.45273)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Room2" type="Area2D" parent="Node2D"]
 position = Vector2(703, -367)
+script = ExtResource("4_v7myn")
+next_room = NodePath("../Room3")
 
-[node name="TileMap" type="Node2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room2"]
+position = Vector2(245, 137.125)
+shape = SubResource("RectangleShape2D_11taj")
 
-[node name="Layer 1" type="TileMapLayer" parent="Area2D2/TileMap"]
+[node name="TileMap" type="Node2D" parent="Node2D/Room2"]
+
+[node name="Layer 1" type="TileMapLayer" parent="Node2D/Room2/TileMap"]
 position = Vector2(-27, 3)
 tile_map_data = PackedByteArray("AAANAAEAAAAAAAAAAAANAAAAAAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAP//AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAPz/AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAP//AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAPz/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAAAAAAAAAASAAIAAAAAAAAAAAASAAEAAAAAAAAAAAASAAAAAAAAAAAAAAASAP//AAAAAAAAAAASAP7/AAAAAAAAAAASAP3/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAANAPz/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wcdrr")
 
-[node name="Layer2" type="TileMapLayer" parent="Area2D2/TileMap"]
+[node name="Layer2" type="TileMapLayer" parent="Node2D/Room2/TileMap"]
 position = Vector2(-79, -11)
 tile_map_data = PackedByteArray("AAATAPn/BQAwABAAAAARAPn/BQAwABAAAAAMAPr/BQAwAAAAAAAPAPn/BQAwABAAAAAMAPz/BQAwAAAAAAAMAP7/BQAwAAAAAAAMAAAABQAwAAAAAAA=")
 tile_set = SubResource("TileSet_dhdih")
 y_sort_origin = -16
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2/TileMap"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room2/TileMap"]
 position = Vector2(188, 88)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/TileMap/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/TileMap/StaticBody2D"]
 polygon = PackedVector2Array(-70, 11, 57, -53, 65, -49, 65, -49, 65, -17, -63, 47, -70, 43)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Area2D2/TileMap"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D/Room2/TileMap"]
 position = Vector2(189, 145)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/TileMap/StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/TileMap/StaticBody2D2"]
 position = Vector2(-1, 32)
 polygon = PackedVector2Array(-71, -46, 57, 18, 57, 34, -70, -30)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Area2D2/TileMap"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D/Room2/TileMap"]
 position = Vector2(307, 149)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/TileMap/StaticBody2D3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/TileMap/StaticBody2D3"]
 polygon = PackedVector2Array(66, -18, -62, 47, -62, 62, 66, -1)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Area2D2/TileMap"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D/Room2/TileMap"]
 position = Vector2(301, 89)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/TileMap/StaticBody2D4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/TileMap/StaticBody2D4"]
 polygon = PackedVector2Array(-32, -1, -31, -35, -24, -38, 71, 10, 71, 42, 65, 46, -32, -2)
 
-[node name="Worker2" type="Node2D" parent="Area2D2"]
+[node name="Worker2" type="Node2D" parent="Node2D/Room2"]
 position = Vector2(473, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2/Worker2"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room2/Worker2"]
 position = Vector2(-183, 95)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2/Worker2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room2/Worker2"]
 position = Vector2(-183, 99)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/Worker2/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/Worker2/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker4" type="Node2D" parent="Area2D2"]
+[node name="Worker4" type="Node2D" parent="Node2D/Room2"]
 position = Vector2(1600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2/Worker4"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room2/Worker4"]
 position = Vector2(-1278, 132)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2/Worker4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room2/Worker4"]
 position = Vector2(-1278, 136)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/Worker4/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/Worker4/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker3" type="Node2D" parent="Area2D2"]
+[node name="Worker3" type="Node2D" parent="Node2D/Room2"]
 position = Vector2(934, 28)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2/Worker3"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room2/Worker3"]
 position = Vector2(-649, 126)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2/Worker3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room2/Worker3"]
 position = Vector2(-649, 130)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/Worker3/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/Worker3/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker" type="Node2D" parent="Area2D2"]
+[node name="Worker" type="Node2D" parent="Node2D/Room2"]
 position = Vector2(341, -62)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2/Worker"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room2/Worker"]
 position = Vector2(-155, 174)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2/Worker"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room2/Worker"]
 position = Vector2(-155, 178)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2/Worker/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room2/Worker/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(245, 137.125)
+[node name="SpawnPoint" type="Marker2D" parent="Node2D/Room2"]
+position = Vector2(190, 144)
+
+[node name="ExitTrigger" type="Area2D" parent="Node2D/Room2"]
+scale = Vector2(1.01752, 0.966777)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room2/ExitTrigger"]
+position = Vector2(270, 77.2013)
+scale = Vector2(1.20756, 1.45273)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="Area2D3" type="Area2D" parent="."]
+[node name="Room3" type="Area2D" parent="Node2D"]
 position = Vector2(1391, -679)
+script = ExtResource("5_1a1ij")
 
-[node name="TileMap" type="Node2D" parent="Area2D3"]
+[node name="TileMap" type="Node2D" parent="Node2D/Room3"]
 
-[node name="Layer 1" type="TileMapLayer" parent="Area2D3/TileMap"]
+[node name="Layer 1" type="TileMapLayer" parent="Node2D/Room3/TileMap"]
 position = Vector2(-27, 3)
 tile_map_data = PackedByteArray("AAANAAEAAAAAAAAAAAANAAAAAAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAP//AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAPz/AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAP//AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAPz/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAAAAAAAAAASAAIAAAAAAAAAAAASAAEAAAAAAAAAAAASAAAAAAAAAAAAAAASAP//AAAAAAAAAAASAP7/AAAAAAAAAAASAP3/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAANAPz/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wcdrr")
 
-[node name="Layer2" type="TileMapLayer" parent="Area2D3/TileMap"]
+[node name="Layer2" type="TileMapLayer" parent="Node2D/Room3/TileMap"]
 position = Vector2(-79, -11)
 tile_map_data = PackedByteArray("AAATAPn/BQAwABAAAAARAPn/BQAwABAAAAAMAPr/BQAwAAAAAAAPAPn/BQAwABAAAAAMAPz/BQAwAAAAAAAMAP7/BQAwAAAAAAAMAAAABQAwAAAAAAA=")
 tile_set = SubResource("TileSet_dhdih")
 y_sort_origin = -16
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D3/TileMap"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room3/TileMap"]
 position = Vector2(188, 88)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/TileMap/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/TileMap/StaticBody2D"]
 polygon = PackedVector2Array(-70, 11, 57, -53, 65, -49, 65, -49, 65, -17, -63, 47, -70, 43)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Area2D3/TileMap"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D/Room3/TileMap"]
 position = Vector2(189, 145)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/TileMap/StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/TileMap/StaticBody2D2"]
 position = Vector2(-1, 32)
 polygon = PackedVector2Array(-71, -46, 57, 18, 57, 34, -70, -30)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Area2D3/TileMap"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D/Room3/TileMap"]
 position = Vector2(307, 149)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/TileMap/StaticBody2D3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/TileMap/StaticBody2D3"]
 polygon = PackedVector2Array(66, -18, -62, 47, -62, 62, 66, -1)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Area2D3/TileMap"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D/Room3/TileMap"]
 position = Vector2(301, 89)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/TileMap/StaticBody2D4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/TileMap/StaticBody2D4"]
 polygon = PackedVector2Array(-32, -1, -31, -35, -24, -38, 71, 10, 71, 42, 65, 46, -32, -2)
 
-[node name="Worker2" type="Node2D" parent="Area2D3"]
+[node name="Worker2" type="Node2D" parent="Node2D/Room3"]
 position = Vector2(473, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Worker2"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room3/Worker2"]
 position = Vector2(-183, 95)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D3/Worker2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room3/Worker2"]
 position = Vector2(-183, 99)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/Worker2/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/Worker2/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker4" type="Node2D" parent="Area2D3"]
-position = Vector2(1600, 0)
+[node name="Worker4" type="Node2D" parent="Node2D/Room3"]
+position = Vector2(1520, 40)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Worker4"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room3/Worker4"]
 position = Vector2(-1278, 132)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D3/Worker4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room3/Worker4"]
 position = Vector2(-1278, 136)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/Worker4/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/Worker4/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker3" type="Node2D" parent="Area2D3"]
-position = Vector2(934, 28)
+[node name="Worker3" type="Node2D" parent="Node2D/Room3"]
+position = Vector2(850, -22)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Worker3"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room3/Worker3"]
 position = Vector2(-649, 126)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D3/Worker3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room3/Worker3"]
 position = Vector2(-649, 130)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/Worker3/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/Worker3/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="Worker" type="Node2D" parent="Area2D3"]
-position = Vector2(341, -62)
+[node name="Worker" type="Node2D" parent="Node2D/Room3"]
+position = Vector2(400, -40)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Worker"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Room3/Worker"]
 position = Vector2(-155, 174)
 texture = ExtResource("2_tqv14")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D3/Worker"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/Room3/Worker"]
 position = Vector2(-155, 178)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3/Worker/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Room3/Worker/StaticBody2D"]
 polygon = PackedVector2Array(-14, -12, -1, -19, 15, -12, 15, 5, -1, 9, -16, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room3"]
 position = Vector2(245, 137.125)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="Player" parent="." instance=ExtResource("3_o0ln8")]
+[node name="SpawnPoint" type="Marker2D" parent="Node2D/Room3"]
+position = Vector2(190, 144)
+
+[node name="ExitTrigger" type="Area2D" parent="Node2D/Room3"]
+scale = Vector2(1.01752, 0.966777)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Room3/ExitTrigger"]
+position = Vector2(270, 77.2013)
+scale = Vector2(1.20756, 1.45273)
+shape = SubResource("RectangleShape2D_11taj")
+
+[node name="Player" parent="Node2D" instance=ExtResource("3_o0ln8")]
 position = Vector2(243, 106)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/Player"]

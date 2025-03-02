@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://44jybs48r6i3"]
+
+[ext_resource type="Texture2D" uid="uid://dlrquhp335au4" path="res://art_assets/End_Screen.png" id="1_y5vvh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+position = Vector2(256, 128)
+texture = ExtResource("1_y5vvh")
