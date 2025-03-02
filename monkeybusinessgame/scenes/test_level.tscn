@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=7 format=4 uid="uid://cgd3murj7uxes"]
 
 [ext_resource type="PackedScene" uid="uid://d3d0g2g0pnseb" path="res://scenes/player.tscn" id="1_fwrbg"]
@@ -99,7 +100,7 @@ tile_map_data = PackedByteArray("AAD//wEAAAACAAIAAAD+/wEAAAACAAIAAAD+/wAAAAACAAI
 tile_set = SubResource("TileSet_pxnq5")
 
 [node name="NPC" parent="." instance=ExtResource("3_yiapj")]
-position = Vector2(345, 216)
+position = Vector2(316, 152)
 
 [node name="Player" parent="." instance=ExtResource("1_fwrbg")]
 position = Vector2(573, 263)

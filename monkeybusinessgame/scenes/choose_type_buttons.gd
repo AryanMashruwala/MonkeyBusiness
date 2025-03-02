@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-@onready var npc = get_tree().get_first_node_in_group("npc")
-@onready var dialogueBox = get_parent().get_node("TextBoxContainer")
+@onready var npc = get_parent().get_parent().get_child(2)
+@onready var dialogueBox = get_parent()
+
 
 
 
