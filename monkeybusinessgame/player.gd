@@ -4,6 +4,8 @@ extends CharacterBody2D
 var lastDir = "s_idle"
 @onready var animation = $AnimatedSprite2D
 
+var currRoom = 0
+
 var canMove = true
 const SPEED = 100
 var current_room: Area2D = null
@@ -11,6 +13,11 @@ var current_room: Area2D = null
 var ethosComp = true
 var pathosComp = false
 var logosComp = false
+
+func getCurrRoom():
+	return currRoom
+func incCurrRoom():
+	currRoom = currRoom + 1
 
 func getEthos():
 	return ethosComp

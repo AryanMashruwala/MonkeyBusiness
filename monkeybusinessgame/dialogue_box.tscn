@@ -13,7 +13,7 @@ border_width_bottom = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjgwx"]
 font = ExtResource("1_mahvn")
-font_size = 24
+font_size = 12
 
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_y38l0")
@@ -24,9 +24,9 @@ anchor_left = 0.149
 anchor_top = 1.0
 anchor_right = 0.851
 anchor_bottom = 1.0
-offset_left = 0.35199
-offset_top = -254.0
-offset_right = -0.35199
+offset_left = 0.711998
+offset_top = -119.0
+offset_right = 0.287994
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 16
@@ -61,7 +61,7 @@ text = ">"
 label_settings = SubResource("LabelSettings_pjgwx")
 
 [node name="body" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(10, 10)
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -75,7 +75,7 @@ visible_ratio = 0.0
 [node name="end" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "press any key"
+text = "press T"
 label_settings = SubResource("LabelSettings_pjgwx")
 
 [node name="ChooseTypeButtons" parent="." instance=ExtResource("3_ki0a0")]
