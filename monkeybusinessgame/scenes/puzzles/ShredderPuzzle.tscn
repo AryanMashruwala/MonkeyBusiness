@@ -12,6 +12,11 @@ size = Vector2(114, 170.5)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_88jm6")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 512.0
+offset_bottom = 255.0
+mouse_filter = 2
+
 [node name="Slot1" type="Area2D" parent="."]
 position = Vector2(18, 21)
 script = ExtResource("2_x6je0")
@@ -32,11 +37,11 @@ position = Vector2(348, 23)
 script = ExtResource("2_x6je0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot2"]
-position = Vector2(-141, 88)
+position = Vector2(-156, 87)
 shape = SubResource("RectangleShape2D_kmkey")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slot2"]
-position = Vector2(-144, 88)
+position = Vector2(-160, 87)
 scale = Vector2(6.34375, 4.70312)
 texture = ExtResource("3_2utik")
 region_enabled = true
@@ -47,11 +52,11 @@ position = Vector2(387, 23)
 script = ExtResource("2_x6je0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot3"]
-position = Vector2(-51, 91)
+position = Vector2(-81, 87)
 shape = SubResource("RectangleShape2D_kmkey")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slot3"]
-position = Vector2(-48, 89)
+position = Vector2(-81, 88)
 scale = Vector2(6.34375, 4.70312)
 texture = ExtResource("3_2utik")
 region_enabled = true
@@ -62,11 +67,11 @@ position = Vector2(426, 23)
 script = ExtResource("2_x6je0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot4"]
-position = Vector2(35, 90)
+position = Vector2(-6, 86)
 shape = SubResource("RectangleShape2D_kmkey")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slot4"]
-position = Vector2(35, 91)
+position = Vector2(-10, 89)
 scale = Vector2(6.34375, 4.70312)
 texture = ExtResource("3_2utik")
 region_enabled = true
@@ -76,8 +81,8 @@ region_rect = Rect2(48.3274, -1.26043, 16.3649, 32.5782)
 position = Vector2(61, 87)
 
 [node name="Sprite2D" type="Sprite2D" parent="paperPiece1"]
-position = Vector2(19.125, 25.25)
-scale = Vector2(1.99286, 1.49479)
+position = Vector2(19.0625, 21.5)
+scale = Vector2(1.99643, 1.46875)
 texture = ExtResource("3_rdw7a")
 region_enabled = true
 region_rect = Rect2(0, 0, 35, 96)
@@ -93,11 +98,11 @@ region_enabled = true
 region_rect = Rect2(48, 0, 36, 96)
 
 [node name="paperPiece3" parent="." instance=ExtResource("1_g6b6l")]
-position = Vector2(203, 106)
+position = Vector2(240, 126)
 
 [node name="Sprite2D" type="Sprite2D" parent="paperPiece3"]
-position = Vector2(20.5, 22.5)
-scale = Vector2(1.925, 1.48958)
+position = Vector2(18.5, 22.5)
+scale = Vector2(1.825, 1.46875)
 texture = ExtResource("3_rdw7a")
 region_enabled = true
 region_rect = Rect2(96, 0, 40, 96)
@@ -106,8 +111,8 @@ region_rect = Rect2(96, 0, 40, 96)
 position = Vector2(279, 213)
 
 [node name="Sprite2D" type="Sprite2D" parent="paperPiece4"]
-position = Vector2(18.5, 21)
-scale = Vector2(2.08824, 1.47917)
+position = Vector2(18, 22)
+scale = Vector2(2.05882, 1.45833)
 texture = ExtResource("3_rdw7a")
 region_enabled = true
 region_rect = Rect2(144, 0, 34, 96)
