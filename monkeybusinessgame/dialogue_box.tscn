@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk0nd56tcbo2u"]
+[gd_scene load_steps=6 format=3 uid="uid://bk0nd56tcbo2u"]
 
 [ext_resource type="FontFile" uid="uid://bnn8i6yfvk8fc" path="res://MegamaxJonathanToo-YqOq2.ttf" id="1_mahvn"]
 [ext_resource type="Script" path="res://scenes/dialogue_box.gd" id="1_y38l0"]
+[ext_resource type="PackedScene" uid="uid://uiuj27rxctss" path="res://scenes/choose_type_buttons.tscn" id="3_ki0a0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05sns"]
 bg_color = Color(0.74902, 0.729412, 0.47451, 1)
@@ -76,3 +77,6 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "press any key"
 label_settings = SubResource("LabelSettings_pjgwx")
+
+[node name="ChooseTypeButtons" parent="." instance=ExtResource("3_ki0a0")]
+visible = false

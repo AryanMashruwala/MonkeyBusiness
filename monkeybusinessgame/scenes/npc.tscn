@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://4v3rbof2ixc4"]
 
 [ext_resource type="Script" path="res://scenes/npc.gd" id="1_21ady"]
-[ext_resource type="Texture2D" uid="uid://bhbwefl40fxl4" path="res://Monkey.png" id="1_u05v5"]
+[ext_resource type="Texture2D" path="res://art_assets/Monkey.png" id="1_u05v5"]
 [ext_resource type="Script" path="res://scenes/area_2d.gd" id="3_2q5nv"]
 [ext_resource type="FontFile" uid="uid://bnn8i6yfvk8fc" path="res://MegamaxJonathanToo-YqOq2.ttf" id="4_n8lqc"]
-[ext_resource type="PackedScene" path="res://dialogue_box.tscn" id="5_t66oq"]
+[ext_resource type="PackedScene" uid="uid://bk0nd56tcbo2u" path="res://dialogue_box.tscn" id="5_t66oq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lx3mm"]
 radius = 28.0
@@ -19,6 +19,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [node name="NPC" type="CharacterBody2D"]
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_21ady")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

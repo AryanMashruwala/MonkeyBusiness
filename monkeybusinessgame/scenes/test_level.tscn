@@ -1,8 +1,10 @@
+
 [gd_scene load_steps=7 format=4 uid="uid://c5f73ap5fgde5"]
 
 [ext_resource type="PackedScene" uid="uid://d3d0g2g0pnseb" path="res://scenes/player.tscn" id="1_fwrbg"]
 [ext_resource type="Texture2D" uid="uid://dmily2buuq481" path="res://art_assets/walls_n_floors.png" id="1_k8rr1"]
 [ext_resource type="PackedScene" uid="uid://4v3rbof2ixc4" path="res://scenes/npc.tscn" id="3_yiapj"]
+[ext_resource type="PackedScene" uid="uid://uiuj27rxctss" path="res://scenes/choose_type_buttons.tscn" id="4_rkivj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7p5y"]
 size = Vector2(287.866, 19.4561)
@@ -99,9 +101,10 @@ tile_map_data = PackedByteArray("AAD//wEAAAACAAIAAAD+/wEAAAACAAIAAAD+/wAAAAACAAI
 tile_set = SubResource("TileSet_pxnq5")
 
 [node name="NPC" parent="." instance=ExtResource("3_yiapj")]
-position = Vector2(309, 153)
+position = Vector2(345, 216)
 
 [node name="Player" parent="." instance=ExtResource("1_fwrbg")]
+
 position = Vector2(573, 263)
 
 [node name="Node" type="Node" parent="."]
