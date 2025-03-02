@@ -16,6 +16,7 @@ position = Vector2(256, 128)
 texture = ExtResource("1_ydnkd")
 
 [node name="start_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 177.0
 offset_top = 198.0
 offset_right = 185.0
