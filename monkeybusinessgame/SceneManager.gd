@@ -1,4 +1,5 @@
 extends Node
+# For managing scenes
 
 var previous_scene: Node = null  # Store the original scene
 
