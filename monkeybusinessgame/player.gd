@@ -1,8 +1,27 @@
 extends CharacterBody2D
 
+
 var lastDir = "s_idle"
 @onready var animation = $AnimatedSprite2D
+
+var canMove = true
 const SPEED = 300
+
+var ethosComp = true
+var pathosComp = false
+var logosComp = false
+
+func getEthos():
+	return ethosComp
+
+func getPathos():
+	return pathosComp
+	
+func getLogos():
+	return logosComp
+	
+func toggleCanMove():
+	canMove = !canMove
 
 
 func _ready() -> void:
@@ -11,12 +30,19 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
 	var direction = Input.get_vector("left","right","up","down")
+
 	velocity = direction * SPEED
+
 	move_and_slide()
 	
 	var x = direction.x
 	var y = direction.y
+	
+
+	
+
 	
 	if x > 0 and y == 0: # east
 		animation.play("e_walk")
