@@ -6,6 +6,7 @@ var lastDir = "s_idle"
 
 var canMove = true
 const SPEED = 100
+var current_room: Area2D = null
 
 var ethosComp = true
 var pathosComp = false
@@ -71,6 +72,12 @@ func _process(delta: float) -> void:
 	else:
 		animation.play(lastDir)
 		
-	
+		
+func teleport_to_room(new_room: Area2D):
+	if new_room:
+		global_position = new_room.get_spawn_position()
+		var camera = $Camera2D
+		camera.global_position = global_position
+		current_room = new_room
 
 	
