@@ -1,0 +1,305 @@
+[gd_scene load_steps=7 format=3 uid="uid://ousm5lp3tc6w"]
+
+[ext_resource type="Script" path="res://scenes/puzzles/paint_by_numbers_game.gd" id="1_7h2rp"]
+[ext_resource type="Texture2D" uid="uid://d3mbhl3niw5f7" path="res://art_assets/painting-minigame.png" id="1_wy1l8"]
+[ext_resource type="Script" path="res://scenes/puzzles/paint_brush_cursor.gd" id="3_t1t0f"]
+[ext_resource type="Script" path="res://scenes/puzzles/yellow_brush.gd" id="3_ys512"]
+[ext_resource type="Script" path="res://scenes/puzzles/green_brush.gd" id="4_v4qwo"]
+[ext_resource type="Script" path="res://scenes/puzzles/blue_brush.gd" id="5_dy1bn"]
+
+[node name="PaintByNumbersGame" type="Node2D"]
+position = Vector2(239, 105)
+script = ExtResource("1_7h2rp")
+
+[node name="ColorLayers" type="Node2D" parent="."]
+
+[node name="Canvas" type="Sprite2D" parent="ColorLayers"]
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 160)
+
+[node name="Yellow1" type="Sprite2D" parent="ColorLayers"]
+position = Vector2(-7, 10)
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(240, 352, 48, 72)
+
+[node name="yB8" type="Button" parent="ColorLayers"]
+anchors_preset = -1
+anchor_left = 2.6875
+anchor_top = -0.0625
+anchor_right = 2.6875
+anchor_bottom = -0.0625
+offset_left = -2.0
+offset_top = 14.0
+offset_right = 14.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB7" type="Button" parent="ColorLayers"]
+anchors_preset = -1
+anchor_left = 2.75
+anchor_top = 2.9375
+anchor_right = 2.75
+anchor_bottom = 2.9375
+offset_left = -16.0
+offset_top = 27.0
+offset_bottom = 43.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB6" type="Button" parent="ColorLayers"]
+offset_left = -31.0
+offset_top = -8.0
+offset_right = -15.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB5" type="Button" parent="ColorLayers"]
+anchors_preset = -1
+anchor_left = 2.8125
+anchor_top = 2.375
+anchor_right = 2.8125
+anchor_bottom = 2.375
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 14.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB4" type="Button" parent="ColorLayers"]
+anchors_preset = -1
+anchor_left = 2.4375
+anchor_top = -1.375
+anchor_right = 2.4375
+anchor_bottom = -1.375
+offset_left = -18.0
+offset_top = -22.0
+offset_right = -2.0
+offset_bottom = -6.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB3" type="Button" parent="ColorLayers"]
+offset_left = -28.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB2" type="Button" parent="ColorLayers"]
+offset_left = -18.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="yB1" type="Button" parent="ColorLayers"]
+offset_left = -29.0
+offset_top = -12.0
+offset_right = -13.0
+offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Green2" type="Sprite2D" parent="ColorLayers"]
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(384, 32, 96, 96)
+
+[node name="gB9" type="Button" parent="ColorLayers"]
+offset_left = -47.0
+offset_top = -35.0
+offset_right = -31.0
+offset_bottom = -19.0
+
+[node name="gB8" type="Button" parent="ColorLayers"]
+offset_left = -41.0
+offset_top = -41.0
+offset_right = -25.0
+offset_bottom = -25.0
+
+[node name="gB7" type="Button" parent="ColorLayers"]
+offset_left = -29.0
+offset_top = -46.0
+offset_right = -13.0
+offset_bottom = -30.0
+
+[node name="gB6" type="Button" parent="ColorLayers"]
+offset_left = -19.0
+offset_top = -47.0
+offset_right = -3.0
+offset_bottom = -31.0
+
+[node name="gB5" type="Button" parent="ColorLayers"]
+offset_left = -3.0
+offset_top = -42.0
+offset_right = 13.0
+offset_bottom = -26.0
+
+[node name="gB1" type="Button" parent="ColorLayers"]
+offset_left = 11.0
+offset_top = -34.0
+offset_right = 27.0
+offset_bottom = -18.0
+
+[node name="gB2" type="Button" parent="ColorLayers"]
+offset_left = 22.0
+offset_top = -24.0
+offset_right = 38.0
+offset_bottom = -8.0
+
+[node name="gB3" type="Button" parent="ColorLayers"]
+offset_left = 24.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = -32.0
+
+[node name="gB4" type="Button" parent="ColorLayers"]
+offset_left = 31.0
+offset_top = -12.0
+offset_right = 47.0
+offset_bottom = 4.0
+
+[node name="Blue3" type="Sprite2D" parent="ColorLayers"]
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(288, 32, 96, 96)
+
+[node name="bB10" type="Button" parent="ColorLayers"]
+offset_left = 19.0
+offset_top = 11.0
+offset_right = 35.0
+offset_bottom = 27.0
+
+[node name="bB9" type="Button" parent="ColorLayers"]
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 35.0
+offset_bottom = 37.0
+
+[node name="bB8" type="Button" parent="ColorLayers"]
+offset_left = 17.0
+offset_top = 32.0
+offset_right = 33.0
+offset_bottom = 48.0
+
+[node name="bB7" type="Button" parent="ColorLayers"]
+offset_left = 3.0
+offset_top = 32.0
+offset_right = 19.0
+offset_bottom = 48.0
+
+[node name="bB6" type="Button" parent="ColorLayers"]
+offset_left = -39.0
+offset_top = 32.0
+offset_right = -23.0
+offset_bottom = 48.0
+
+[node name="bB5" type="Button" parent="ColorLayers"]
+offset_left = -49.0
+offset_top = -4.0
+offset_right = -33.0
+offset_bottom = 12.0
+
+[node name="bB4" type="Button" parent="ColorLayers"]
+offset_left = 9.0
+offset_top = -54.0
+offset_right = 25.0
+offset_bottom = -38.0
+
+[node name="bB3" type="Button" parent="ColorLayers"]
+offset_left = 38.0
+offset_top = -38.0
+offset_right = 54.0
+offset_bottom = -22.0
+
+[node name="bB2" type="Button" parent="ColorLayers"]
+offset_left = -48.0
+offset_top = 11.0
+offset_right = -32.0
+offset_bottom = 27.0
+
+[node name="bB1" type="Button" parent="ColorLayers"]
+offset_left = -46.0
+offset_top = 26.0
+offset_right = -30.0
+offset_bottom = 42.0
+
+[node name="Palette" type="Node2D" parent="."]
+
+[node name="PaletteSprite" type="Sprite2D" parent="Palette"]
+position = Vector2(71, 76)
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(160, 32, 128, 64)
+
+[node name="Yellow" type="Sprite2D" parent="Palette"]
+position = Vector2(75, 53)
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(192, 104, 32, 24)
+
+[node name="Yellow1" type="Button" parent="Palette"]
+offset_left = 61.0
+offset_top = 42.0
+offset_right = 89.0
+offset_bottom = 60.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Green" type="Sprite2D" parent="Palette"]
+position = Vector2(32, 72)
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(256, 8, 32, 24)
+
+[node name="Green2" type="Button" parent="Palette"]
+offset_left = 18.0
+offset_top = 61.0
+offset_right = 46.0
+offset_bottom = 79.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Blue" type="Sprite2D" parent="Palette"]
+position = Vector2(75, 88)
+texture = ExtResource("1_wy1l8")
+region_enabled = true
+region_rect = Rect2(192, 8, 32, 24)
+
+[node name="Blue3" type="Button" parent="Palette"]
+offset_left = 61.0
+offset_top = 77.0
+offset_right = 89.0
+offset_bottom = 95.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PaintBrushCursor" type="Node2D" parent="."]
+
+[node name="PaintBrushCursor" type="Sprite2D" parent="PaintBrushCursor"]
+position = Vector2(-127, -20)
+texture = ExtResource("1_wy1l8")
+offset = Vector2(-15, -15)
+region_enabled = true
+region_rect = Rect2(352, 0, 32, 32)
+script = ExtResource("3_t1t0f")
+
+[node name="YellowBrush" type="Sprite2D" parent="PaintBrushCursor"]
+position = Vector2(-149, 4)
+texture = ExtResource("1_wy1l8")
+offset = Vector2(-15, -15)
+region_enabled = true
+region_rect = Rect2(160, 96, 32, 32)
+script = ExtResource("3_ys512")
+
+[node name="GreenBrush" type="Sprite2D" parent="PaintBrushCursor"]
+position = Vector2(-105, -43)
+texture = ExtResource("1_wy1l8")
+offset = Vector2(-15, -15)
+region_enabled = true
+region_rect = Rect2(224, 0, 32, 32)
+script = ExtResource("4_v4qwo")
+
+[node name="BlueBrush" type="Sprite2D" parent="PaintBrushCursor"]
+position = Vector2(-124, 36)
+texture = ExtResource("1_wy1l8")
+offset = Vector2(-15, -15)
+region_enabled = true
+region_rect = Rect2(160, 0, 32, 32)
+script = ExtResource("5_dy1bn")

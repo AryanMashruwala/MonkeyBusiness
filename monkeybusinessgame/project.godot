@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="MonkeyBusinessGame"
-run/main_scene="res://scenes/test_level.tscn"
+run/main_scene="res://scenes/puzzles/paint_by_numbers_game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=256
+window/stretch/mode="viewport"
 
 [global_group]
 
