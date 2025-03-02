@@ -110,6 +110,10 @@ func loadLose():
 	
 func togglePuzzle():
 	playerRef.incCurrRoom()
-	print(currType)
 	npc.queue_free()
-	pass
+	if currType == 0:
+		SceneManager.switch_scene("res://scenes/puzzles/paint_by_numbers_game.tscn")  # Change to the next scene
+	#elif currType == 1:
+		#SceneManager.switch_scene("res://scenes/puzzles/paint_by_numbers_game.tscn")  # Change to the next scene
+	#elif currType == 2:
+		#SceneManager.switch_scene("res://scenes/puzzles/paint_by_numbers_game.tscn")  # Change to the next scene

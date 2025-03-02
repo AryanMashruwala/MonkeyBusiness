@@ -1,8 +1,8 @@
-
-[gd_scene load_steps=12 format=4 uid="uid://ftpasfy72wsf"]
+[gd_scene load_steps=14 format=4 uid="uid://ftpasfy72wsf"]
 
 [ext_resource type="Script" path="res://scenes/room_1.gd" id="1_7hdbf"]
 [ext_resource type="Texture2D" uid="uid://dmily2buuq481" path="res://art_assets/walls_n_floors.png" id="1_bjngc"]
+[ext_resource type="Script" path="res://scenes/main_office.gd" id="1_imqb2"]
 [ext_resource type="Texture2D" uid="uid://c01ochcmqth5j" path="res://art_assets/office_art.png" id="2_tqv14"]
 [ext_resource type="PackedScene" uid="uid://d3d0g2g0pnseb" path="res://scenes/player.tscn" id="3_o0ln8"]
 [ext_resource type="PackedScene" uid="uid://4v3rbof2ixc4" path="res://scenes/npc.tscn" id="4_4hgjq"]
@@ -109,6 +109,7 @@ sources/5 = SubResource("TileSetAtlasSource_qychi")
 
 [node name="Node2D2" type="Node2D"]
 position = Vector2(-3, 1)
+script = ExtResource("1_imqb2")
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(0.998922, 1)
@@ -239,7 +240,7 @@ position = Vector2(270, 77.2013)
 scale = Vector2(1.20756, 1.45273)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="NPC" parent="Node2D/Room1" instance=ExtResource("4_4hgjq")]
+[node name="NPC" parent="Node2D/Room1" groups=["npcs"] instance=ExtResource("4_4hgjq")]
 position = Vector2(254.274, 80)
 
 [node name="Room2" type="Area2D" parent="Node2D"]
@@ -360,7 +361,7 @@ position = Vector2(270, 77.2013)
 scale = Vector2(1.20756, 1.45273)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="NPC_pathos" parent="Node2D/Room2" instance=ExtResource("4_4hgjq")]
+[node name="NPC_pathos" parent="Node2D/Room2" groups=["npcs"] instance=ExtResource("4_4hgjq")]
 position = Vector2(256.034, 75)
 
 [node name="Room3" type="Area2D" parent="Node2D"]
@@ -480,7 +481,7 @@ position = Vector2(270, 77.2013)
 scale = Vector2(1.20756, 1.45273)
 shape = SubResource("RectangleShape2D_11taj")
 
-[node name="NPC_pathos" parent="Node2D/Room3" instance=ExtResource("4_4hgjq")]
+[node name="NPC_pathos" parent="Node2D/Room3" groups=["npcs"] instance=ExtResource("4_4hgjq")]
 position = Vector2(253.773, 79)
 
 [node name="Player" parent="Node2D" instance=ExtResource("3_o0ln8")]

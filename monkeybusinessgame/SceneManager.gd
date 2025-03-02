@@ -1,20 +1,24 @@
 extends Node
-# For managing scenes
 
-var previous_scene: Node = null  # Store the original scene
+var main_office = null
+var current_overlay = null
 
-func switch_scene(target_scene_path: String):
-    if previous_scene == null:
-        previous_scene = get_tree().current_scene  # Store the current scene
+func _ready():
+	# Store the initial scene (assuming it's main_office)
+	main_office = get_tree().current_scene
 
-    var target_scene = load(target_scene_path).instantiate()
-    get_tree().root.add_child(target_scene)
-    get_tree().current_scene.queue_free()
-    get_tree().current_scene = target_scene
-
-func return_to_previous_scene():
-    if previous_scene:
-        get_tree().root.add_child(previous_scene)
-        get_tree().current_scene.queue_free()
-        get_tree().current_scene = previous_scene
-        previous_scene = null  # Reset after returning
+func switch_scene(scene_path: String):
+	# If switching to a puzzle, overlay it
+	if scene_path != "res://scenes/main_office.tscn":
+		if current_overlay:
+			current_overlay.queue_free()  # Remove any existing overlay before adding a new one
+			await get_tree().process_frame  # Ensure it's fully removed before adding a new one
+		var new_scene = load(scene_path).instantiate()
+		get_tree().current_scene.add_child(new_scene)  # Add to the current main scene instead of root
+		current_overlay = new_scene
+	else:
+		# If returning to main_office, remove the overlay
+		if current_overlay:
+			current_overlay.queue_free()
+			await get_tree().process_frame  # Allow time for removal
+			current_overlay = null

@@ -127,4 +127,7 @@ func check_completion():
 		change_scene()
 
 func change_scene():
-	get_tree().change_scene_to_file("res://scenes/main_office.tscn")  # Change to the next scene
+	if get_parent():
+		queue_free()  # Ensure this scene is removed before switching back
+	await get_tree().process_frame  # Allow time for removal
+	SceneManager.switch_scene("res://scenes/main_office.tscn")

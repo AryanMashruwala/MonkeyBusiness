@@ -11,5 +11,5 @@ func get_spawn_position() -> Vector2:
 	return spawn_point.global_position if spawn_point else global_position
 
 func _on_exit_trigger_body_exited(body):
-	if body is CharacterBody2D:
+	if body.is_in_group("player"):
 		get_tree().change_scene_to_file("res://end_screen.tscn")

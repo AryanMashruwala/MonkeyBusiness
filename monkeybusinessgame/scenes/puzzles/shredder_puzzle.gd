@@ -29,4 +29,7 @@ func mark_piece_removed(piece_name: String, slot_name: String):
 
 func check_puzzle_solved():
 	if len(placed_pieces) == len(correct_slots):
-		print("🎉 Puzzle Solved!")
+		if is_instance_valid(self):
+			queue_free()  # Only free if still valid
+			await get_tree().process_frame
+		SceneManager.switch_scene("res://scenes/main_office.tscn")
