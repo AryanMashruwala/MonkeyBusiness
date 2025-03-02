@@ -5,7 +5,7 @@ var lastDir = "s_idle"
 @onready var animation = $AnimatedSprite2D
 
 var canMove = true
-const SPEED = 300
+const SPEED = 100
 
 var ethosComp = true
 var pathosComp = false

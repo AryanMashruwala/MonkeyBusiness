@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhbwefl40fxl4"
-path="res://.godot/imported/Monkey.png-14aeffdc730e8fdaa95eaf804d3e9892.ctex"
+uid="uid://btvq4q7kjex2x"
+path="res://.godot/imported/word_puzzle_2.png-fefa6a70ef6898aff4c7be91b48d1b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art_assets/Monkey.png"
-dest_files=["res://.godot/imported/Monkey.png-14aeffdc730e8fdaa95eaf804d3e9892.ctex"]
+source_file="res://art_assets/word_puzzle_2.png"
+dest_files=["res://.godot/imported/word_puzzle_2.png-fefa6a70ef6898aff4c7be91b48d1b66.ctex"]
 
 [params]
 
